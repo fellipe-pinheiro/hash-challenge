@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+grpcio = "==1.35.0"
+grpcio-tools = "==1.35.0"
+sqlalchemy = "==1.3.23"
+psycopg2-binary = "==2.8.6"
+alembic = "*"
+alchemy-mock = "*"
+
+[dev-packages]
+flake8 = "==3.8.4"
+autopep8 = "==1.5.5"
+pytest = "*"
+mock = "*"
+pytest-cov = "*"
+
+[requires]
+python_version = "3.9"

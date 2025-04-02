@@ -1,0 +1,33 @@
+version: '3'
+services:
+  database:
+    image: "postgres"
+    network_mode: host
+    env_file:
+      - .env
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+
+  user_api:
+    build: ./user_api
+    network_mode: host
+    env_file:
+      - .env
+    volumes:
+      - ./user_api:/app
+    depends_on:
+      - "database"
+
+  product_api:
+    build: ./product_api
+    network_mode: host
+    env_file:
+      - .env
+    volumes:
+      - ./product_api:/app
+    depends_on:
+      - "database"
+      - "user_api"
+
+volumes:
+  database-data:

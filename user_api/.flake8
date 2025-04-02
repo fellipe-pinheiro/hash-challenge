@@ -1,0 +1,6 @@
+[flake8]
+max-line-length = 135
+exclude = 
+	test,
+	alembic
+	stub

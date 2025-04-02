@@ -1,0 +1,12 @@
+[run]
+omit=
+    src/stub/*.*
+    src/__main__.py
+
+parallel=True
+
+[paths]
+source=src/
+
+[report]
+skip_empty=True

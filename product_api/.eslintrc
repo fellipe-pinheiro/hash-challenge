@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "airbnb-base"
+  ],
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "ignorePatterns": [
+    "src/stub/*.js"
+  ],
+  "rules": {
+    "no-console": "off"
+  }
+}

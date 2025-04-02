@@ -1,0 +1,127 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Product API",
+    "description": "swagger of project https://github.com/fellipe-pinheiro/hash_challenge"
+  },
+  "host": "localhost:8080",
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "product"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/product": {
+      "get": {
+        "tags": [
+          "product"
+        ],
+        "summary": "List products",
+        "description": "",
+        "operationId": "addPet",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "page number",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "description": "page size",
+            "type": "integer"
+          },
+          {
+            "in": "header",
+            "name": "X-USER-ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PagedResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "priceInCents": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "discount": {
+          "$ref": "#/definitions/Discount"
+        }
+      }
+    },
+    "Discount": {
+      "type": "object",
+      "properties": {
+        "percentage": {
+          "type": "integer"
+        },
+        "valueInCents": {
+          "type": "integer"
+        }
+      }
+    },
+    "PagedResponse": {
+      "type": "object",
+      "properties": {
+        "itens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Product"
+          }
+        },
+        "page": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "totalItens": {
+          "type": "integer"
+        },
+        "totalPages": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

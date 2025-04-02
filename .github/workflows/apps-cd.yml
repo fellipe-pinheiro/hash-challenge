@@ -1,0 +1,21 @@
+name: apps-cd
+
+on:
+  release:
+    types: [created]
+
+jobs:
+
+  product-cd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cp .env.example .env
+      - run: make product/deploy
+
+  user-cd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cp .env.example .env
+      - run: make user/deploy

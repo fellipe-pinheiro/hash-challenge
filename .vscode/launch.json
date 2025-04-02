@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "user api",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/user_api/src/__main__.py",
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "product api - mocha",
+            "stopOnEntry": false,
+            "runtimeExecutable": "${workspaceFolder}/product_api/node_modules/mocha/bin/_mocha",
+            "args": [
+                "${workspaceFolder}/product_api/tests/unit/**/*.spec.js",
+                "--no-timeouts",
+                "--colors",
+                "--exit"
+            ],
+            "env": {
+                "NODE_PATH": "${workspaceFolder}/product_api",
+                "NODE_ENV": "test"
+            },
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "product api",
+            "program": "${workspaceFolder}/product_api/src/server.js",
+            "console": "integratedTerminal",
+            "env": {
+                "NODE_PATH": "${workspaceFolder}/product_api"
+            },
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
